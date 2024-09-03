@@ -1,4 +1,4 @@
-# -Vaga-de-Estagio-Para-a-Empresa-Target-Sistemas
+Vaga de Estagio Para a Empresa Target Sistemas
 Códigos resolvidos das questões referente a vaga de estágio da empresa Target Sistemas
 
 1)	Observe o trecho de código abaixo: int INDICE = 13, SOMA = 0, K = 0; 
@@ -6,20 +6,20 @@ Enquanto K < INDICE faça { K = K + 1; SOMA = SOMA + K; }
 Imprimir(SOMA); 
 Ao final do processamento, qual será o valor da variável SOMA? 
 
-# Inicialização das variáveis
+Inicialização das variáveis
 indice = 13
 soma = 0
 k = 0
 
-# Loop para calcular a soma
+Loop para calcular a soma
 while k < indice:
     k += 1
     soma += k
 
-# Imprimir o resultado
+Imprimir o resultado
 print("O valor da variável SOMA é:", soma)
 
-# O valor da variável SOMA é: 91 é isso que vai sair no termina.
+O valor da variável SOMA é: 91 é isso que vai sair no termina.
 
 2) Dado a sequência de Fibonacci, onde se inicia por 0 e 1 e o próximo valor sempre será a soma dos 2 valores anteriores (exemplo: 0, 1, 1, 2, 3, 5, 8, 13, 21, 34...), escreva um programa na linguagem que desejar onde, informado um número, ele calcule a sequência de Fibonacci e retorne uma mensagem avisando se o número informado pertence ou não a sequência. 
 
@@ -31,15 +31,15 @@ def pertence_a_fibonacci(num):
         a, b = b, a + b
     return a == num
 
-# Exemplo de uso
+Exemplo de uso
 numero = int(input("Informe um número para verificar se pertence à sequência de Fibonacci: "))
 if pertence_a_fibonacci(numero):
     print(f"O número {numero} pertence à sequência de Fibonacci.")
 else:
     print(f"O número {numero} não pertence à sequência de Fibonacci.")
 
-# Ao colocar no terminal qualquer número que for menor que 35, ele vai para o print que pertence à sequência. 
-# Caso o número for 35 ou maior, ou se forem números negativos, o print vai retornar que não pertence à sequência.
+No terminal a saída quando digitar qualquer número que for menor que 35, ele vai para o print que pertence à sequência. 
+Caso o número for 35 ou maior, ou se forem números negativos, o print vai retornar que não pertence à sequência.
 
 3) Dado um vetor que guarda o valor de faturamento diário de uma distribuidora, faça um programa, na linguagem que desejar, que calcule e retorne: 
 • O menor valor de faturamento ocorrido em um dia do mês; 
@@ -50,13 +50,13 @@ IMPORTANTE:
 a) Usar o json ou xml disponível como fonte dos dados do faturamento mensal; 
 b) Podem existir dias sem faturamento, como nos finais de semana e feriados. Estes dias devem ser ignorados no cálculo da média; 
 
-# Nesta Questão, usei apenas o Arquivo JSON. Importar a biblioteca para fazer este uso. Caso eu fosse fazer com o XML, 
-# também bastava eu importar a biblioteca do XML no Python e trazer os scripts que vocês me mandaram, mas se quiser esta resolução, 
-# me mande um e-mail que eu faço para vocês também com o script do XML.
+Nesta Questão, usei apenas o Arquivo JSON. Importar a biblioteca para fazer este uso. Caso eu fosse fazer com o XML, 
+também bastava eu importar a biblioteca do XML no Python e trazer os scripts que vocês me mandaram, mas se quiser esta resolução, 
+me mande um e-mail que eu faço para vocês também com o script do XML.
 
 import json
 
-# Dados do faturamento em JSON
+Dados do faturamento em JSON
 json_data = '''
 [
     {"dia": 1, "valor": 22174.1664},
@@ -92,30 +92,30 @@ json_data = '''
 ]
 '''
 
-# Carregar os dados
+Carregar os dados
 dados = json.loads(json_data)
 
-# Filtrar valores de faturamento
+Filtrar valores de faturamento
 valores = [item['valor'] for item in dados if item['valor'] > 0]
 
-# Calcular o menor e maior valor
+Calcular o menor e maior valor
 menor_valor = min(valores)
 maior_valor = max(valores)
 
-# Calcular a média mensal
+Calcular a média mensal
 media_mensal = sum(valores) / len(valores)
 
-# Calcular o número de dias com faturamento acima da média
+Calcular o número de dias com faturamento acima da média
 dias_acima_da_media = sum(1 for valor in valores if valor > media_mensal)
 
 print(f"Menor valor de faturamento: R${menor_valor:.2f}")
 print(f"Maior valor de faturamento: R${maior_valor:.2f}")
 print(f"Número de dias com faturamento acima da média mensal: {dias_acima_da_media}")
 
-# Para esta resolução a saida ficou assim: 
-# Menor valor de faturamento: R$373.78
-# Maior valor de faturamento: R$48924.24
-# Número de dias com faturamento acima da média mensal: 10
+A saida no terminal ficou assim: 
+Menor valor de faturamento: R$373.78
+Maior valor de faturamento: R$48924.24
+Número de dias com faturamento acima da média mensal: 10
 
 4) Dado o valor de faturamento mensal de uma distribuidora, detalhado por estado: 
 •	SP – R$67.836,43 
@@ -126,7 +126,7 @@ print(f"Número de dias com faturamento acima da média mensal: {dias_acima_da_m
 
 Escreva um programa na linguagem que desejar onde calcule o percentual de representação que cada estado teve dentro do valor total mensal da distribuidora.  
 
-# Dados do faturamento por estado
+Dados do faturamento por estado
 faturamento = {
     "SP": 67836.43,
     "RJ": 36678.66,
@@ -135,21 +135,21 @@ faturamento = {
     "Outros": 19849.53
 }
 
-# Calcular o valor total
+Calcular o valor total
 valor_total = sum(faturamento.values())
 
-# Calcular e exibir o percentual de cada estado
+Calcular e exibir o percentual de cada estado
 percentuais = {estado: (valor / valor_total) * 100 for estado, valor in faturamento.items()}
 
 for estado, percentual in percentuais.items():
     print(f"{estado}: {percentual:.2f}%")
 
-# Aqui esta a resolução no terminal: 
-# SP: 37.53%
-# RJ: 20.29%
-# MG: 16.17%
-# ES: 15.03%
-# Outros: 10.98%
+Aqui esta a resolução no terminal: 
+SP: 37.53%
+RJ: 20.29%
+MG: 16.17%
+ES: 15.03%
+Outros: 10.98%
 
 5) Escreva um programa que inverta os caracteres de um string. 
 IMPORTANTE: 
@@ -162,10 +162,10 @@ def inverter_string(s):
         invertida = char + invertida
     return invertida
 
-# Exemplo de uso
+Exemplo de uso
 entrada = input("Digite uma string para inverter: ")
 string_invertida = inverter_string(entrada)
 print("String invertida:", string_invertida)
 
-# Se no terminar como exemplo escrever a frase: mob otium é nohtyP. 
-# ele inverte deixando a frase como escrevemos: Python é muito bom.
+Se no terminar como exemplo escrever a frase: mob otium é nohtyP. 
+ele inverte deixando a frase como escrevemos: Python é muito bom.
